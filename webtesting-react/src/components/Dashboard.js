@@ -23,12 +23,21 @@ function Dashboard() {
   };
   const userFouled = () => {
     setFoul(foul + 1);
+    setStrike(strike + 1);
+    if (strike == 2) {
+      setStrike(strike);
+    }
+  };
+
+  const userHit = () => {
+    setStrike(0);
+    setBall(0);
   };
   return (
     <div>
       <Display strike={strike} ball={ball} foul={foul} />
       <div>
-        <button>hit</button>
+        <button onClick={userHit}>hit</button>
       </div>
       <div>
         <button onClick={userStriked}>strike</button>
